@@ -22,10 +22,9 @@ public:
 	string decode(string c);
 
 private:
-	void destroyBst(Node* TreeHead);
-	Node* makeNode(const char newC, char* const newStr);
+	void destroyBST(Node* TreeHead);
 	void insert(Node*& newNode, const char C, char* const Str);
-	void print(Node* Tree); // uses inordertraversal
+	void print(Node* Tree); 
 	string search(Node* Tree, char c);
 	string decode(Node* Tree, string c);
 	Node* Root;

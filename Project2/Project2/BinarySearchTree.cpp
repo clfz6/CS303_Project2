@@ -23,7 +23,7 @@ BST::~BST()
     {
         MorseCode.close();
     }
-    destroyBst(Root);
+    destroyBST(Root);
 }
 
 void BST::setRoot(Node* newHead)
@@ -60,20 +60,14 @@ string BST::decode(string c)
     return Str;
 }
 
-void BST::destroyBst(Node* TreeHead)
+void BST::destroyBST(Node* TreeHead)
 {
     if (TreeHead != nullptr) {
-        destroyBst(TreeHead->getLeft());
-        destroyBst(TreeHead->getRight());
+        destroyBST(TreeHead->getLeft());
+        destroyBST(TreeHead->getRight());
         delete(TreeHead);
     }
 }
-
-/*Node* BST::makeNode(const char newC, char* const newStr)
-{
-    Node* node = new Node(newC, newStr);
-    return node;
-}*/
 
 void BST::insert(Node*& newNode, const char C, char* const Str)
 {
@@ -96,7 +90,7 @@ void BST::print(Node* Tree)
 {
     if (Tree != nullptr) {
         print(Tree->getLeft());
-        //cout << "Character: " << Tree->getChr() << " Code: " << Tree->getString() << endl;
+        //cout << "Character:" << Tree->getChr() << " Code:" << Tree->getString() << endl;
         print(Tree->getRight());
     }
 }

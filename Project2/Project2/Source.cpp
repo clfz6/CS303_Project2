@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 #include "BinarySearchTree.h"
 
 using namespace std;
@@ -12,13 +13,11 @@ using namespace std;
 int main()
 {
     char c = '\0';
-    string d;
+    string d, e;
     fstream Encode, Decode;
     Encode.open("message.txt");
     Decode.open("morse.txt");
     BST Tree;
-    //Tree.print();
-    //cout << endl << endl;
     cout << "Encoded message: ";
     while (!Encode.eof()) 
     {
@@ -30,17 +29,25 @@ int main()
     while (!Decode.eof())
     {
         Decode >> c;
-        if (c != ' ')
+     
+        if (c != '/')
         {
             d += c;
         }
-        else
+
+        if (c == '/')
         {
-            cout << c;
+            Tree.decode(d);
+            d.clear();
+        }      
+
+        if (Decode.eof())
+        {
             Tree.decode(d);
         }
-    } 
-
+    }
+    Tree.decode(d);
+    
     Encode.close();
     Decode.close();
 
