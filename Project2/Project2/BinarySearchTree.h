@@ -19,6 +19,7 @@ public:
 	void insert(const char newC, char* const newStr);
 	void print();
 	string search(char c);
+	string decode(string c);
 
 private:
 	void destroyBst(Node* TreeHead);
@@ -26,6 +27,7 @@ private:
 	void insert(Node*& newNode, const char C, char* const Str);
 	void print(Node* Tree); // uses inordertraversal
 	string search(Node* Tree, char c);
+	string decode(Node* Tree, string c);
 	Node* Root;
 	fstream MorseCode;
 };

@@ -53,6 +53,13 @@ string BST::search(char c)
     return Str;
 }
 
+string BST::decode(string c)
+{
+    string Str;
+    Str = decode(Root, c);
+    return Str;
+}
+
 void BST::destroyBst(Node* TreeHead)
 {
     if (TreeHead != nullptr) {
@@ -89,7 +96,7 @@ void BST::print(Node* Tree)
 {
     if (Tree != nullptr) {
         print(Tree->getLeft());
-        cout << "Character: " << Tree->getChr() << " Code: " << Tree->getString() << endl;
+        //cout << "Character: " << Tree->getChr() << " Code: " << Tree->getString() << endl;
         print(Tree->getRight());
     }
 }
@@ -102,7 +109,23 @@ string BST::search(Node* Tree, char c)
         search(Tree->getRight(), c);
         if (Tree->getChr() == c) {
             Str = Tree->getString();
-            cout << Tree->getString() << endl;
+            cout << Tree->getString() << " ";
+        }
+    }
+    return Str;
+}
+
+string BST::decode(Node* Tree, string c)
+{
+    string Str;
+    if (Tree != nullptr)
+    {
+        decode(Tree->getLeft(), c);
+        decode(Tree->getRight(), c);
+        if (Tree->getString() == c)
+        {
+            Str = Tree->getChr();
+            cout << Tree->getChr() << " ";
         }
     }
     return Str;
@@ -125,7 +148,7 @@ Node::Node(char c, char* s)
 
 Node::~Node()
 {
-    //cout << "";
+    cout << "";
 }
 
 void Node::setChr(const char c)

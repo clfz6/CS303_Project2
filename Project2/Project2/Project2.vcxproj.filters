@@ -32,6 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
-    <Text Include="Convert.txt" />
+    <Text Include="message.txt" />
+    <Text Include="morse.txt" />
   </ItemGroup>
 </Project>
